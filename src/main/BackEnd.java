@@ -64,11 +64,14 @@ class BackEnd {
             layer=arrayCopy(temp);
             route=routeCopy(tempr);
         }
-        min=res;
-        return res;
+        if(out) {
+	        min=res;
+	        return res;
+        }
+        else return -1;
     }
 
-    /*
+    
     public static void main(String[] args){
         char[][] b =new char[3][4];
         b[0][0]=b[0][1]=b[0][3]=b[1][3]=b[2][0]=b[2][1]=b[2][2]='+';
@@ -76,6 +79,6 @@ class BackEnd {
         BackEnd a=new BackEnd();
         System.out.println(a.nearestExit(b, new int[]{1,2},0));
     }
-    */
+    
 
 }

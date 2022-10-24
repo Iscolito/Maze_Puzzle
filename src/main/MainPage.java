@@ -114,9 +114,12 @@ class ComponentsSet{
         			JOptionPane.showMessageDialog(null,"迷宫还没设计好","警告",JOptionPane.WARNING_MESSAGE);
         		}
         		else {
-        			findway.nearestExit(maze.maze, pos,mode);
-        			JOptionPane.showMessageDialog(null,String.format("最短路径需要走%d步，如蓝色路径",findway.min),"结果",JOptionPane.INFORMATION_MESSAGE);
-        			maze.paint(row, col, findway.minRoute);
+        			int res=findway.nearestExit(maze.maze, pos,mode);
+        			if(res==-1) {JOptionPane.showMessageDialog(null,"迷宫是死路","警告",JOptionPane.WARNING_MESSAGE);}
+        			else {
+	        			JOptionPane.showMessageDialog(null,String.format("最短路径需要走%d步，如蓝色路径",findway.min),"结果",JOptionPane.INFORMATION_MESSAGE);
+	        			maze.paint(row, col, findway.minRoute);
+        			}
         		}
         	}
         });
